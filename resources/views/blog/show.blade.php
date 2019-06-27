@@ -25,16 +25,6 @@
 
         <hr>
 
-        <!-- Tags -->
-
-        <p>Tags:
-          @foreach($post->tags as $tag)
-          <a href="/posts/tag/{{ $tag->name}}">{{ $tag->name }}</a>&nbsp;
-          @endforeach
-        </p>
-
-
-
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
