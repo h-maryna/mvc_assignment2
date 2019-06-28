@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Category;
 use Auth;
+use App\Comment;
 use App\Tag;
 
 class PostsController extends Controller
@@ -136,21 +137,21 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storecomments(Request $request)
+    public function storeComments(Request $request)
     {
         $valid = $request->validate([
             'body' => 'required|string'
         ]);
 
+        $valid['post_id'] = $request['post_id'];
+
+        $valid['user_id'] = Auth::user()->id;
+
         $comment = Comment::create($valid);
 
-        return redirect('/posts/{{ $post->slug }}')->with('success', 'Comment was successfully added!'); // with means return with this method
-    }
+        $post = Post::find($valid['post_id']);
 
-    public function showcomments($comment)
-    {
-        $comment = Post::where('slug', '=', $post->slug)->first();
-        return view('/posts/{{ $post->slug }}', compact('post'));
+        return redirect('/posts/' . $post->slug )->with('success', 'Comment was successfully added!'); // with means return with this method
     }
 
     /**

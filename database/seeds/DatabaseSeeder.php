@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(seed_posts_table::class);
         $this->call(seed_comments_table::class);
         $this->call(seed_tags_table::class);
-        factory(App\User::class, 50)->create();
-        factory(App\Post::class, 100)->create();  // created 50 fake users
+        factory(App\User::class, 50)->create();   // created 50 fake users
+        factory(App\Post::class, 100)->create();  // created 100 fake posts
     }
 }

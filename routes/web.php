@@ -41,7 +41,7 @@ Route::get('posts', 'Posts\PostsController@index');
 Route::get('posts/{post}', 'Posts\PostsController@show');
 
 
-Route::post('/comments', 'Posts\PostsController@storecomments');
+Route::post('/posts/{post}', 'Posts\PostsController@storeComments');
 
 
 // pass down y
