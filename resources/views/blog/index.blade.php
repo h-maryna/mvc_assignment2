@@ -25,7 +25,7 @@
                 </span></p>
 
             @if(count($post->tags))
-            <p>Tags:<br />
+            <p style="text-decoration: underline;">Tags:</p>
               @foreach($post->tags as $tag)
                    <a href="/posts/tag/{{ $tag->name }}">{{ $tag->name}} </a>
                  &nbsp;
@@ -33,7 +33,8 @@
            </p>
            @endif
             
-            @if( Auth::check())
+            
+            @if(Auth::check())
             <a class="btn btn-warning" href="/posts/edit/{{ $post->slug}}">edit</a><br />
             &nbsp;&nbsp;
 
