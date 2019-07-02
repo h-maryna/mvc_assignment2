@@ -40,8 +40,14 @@ Route::get('posts', 'Posts\PostsController@index');
 
 Route::get('posts/{post}', 'Posts\PostsController@show');
 
+Auth::routes();
 
 Route::post('/posts/{post}', 'Posts\PostsController@storeComments');
+
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 // pass down y
@@ -64,8 +70,6 @@ Route::post('/posts/{post}', 'Posts\PostsController@storeComments');
 // change links for css and js
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 

@@ -4,7 +4,8 @@
 @section('content')
 
       <!-- Post Content Column -->
-      <div class="container">
+    <div class="container">
+      <div class="row">
       <div class="col-lg-8">
 
         <!-- Title -->
@@ -35,12 +36,16 @@
 
         <hr>
 
+        @if( Auth::check())
+
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>
           <div class="card-body">
             <form class="form" action="/posts/{{ $post->slug}}" method="post">
               <input type="hidden" name="post_id" value="{{ $post->id}}" />
+
+
 
               @csrf
 
@@ -67,10 +72,10 @@
            {!! $comment->body !!}
 
            
-
           </div>
         </div>
         @endforeach
+        @endif
         <!-- Comment with nested comments -->
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -96,6 +101,9 @@
 
           </div>
         </div>
+      </div>
+      
+       @include('partials.sidebar')
 
       </div>
     

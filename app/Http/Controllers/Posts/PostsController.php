@@ -132,7 +132,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created comments in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -145,11 +145,11 @@ class PostsController extends Controller
 
         $valid['post_id'] = $request['post_id'];
 
-        $valid['user_id'] = Auth::user()->id;
+        $valid['user_id'] = Auth::user()->id; // we need to get user's id to know which comment will be outputted
 
-        $comment = Comment::create($valid);
+        $comment = Comment::create($valid); // we create a new comment
 
-        $post = Post::find($valid['post_id']);
+        $post = Post::find($valid['post_id']); // getting a post_id for connecting out comments with the post
 
         return redirect('/posts/' . $post->slug )->with('success', 'Comment was successfully added!'); // with means return with this method
     }

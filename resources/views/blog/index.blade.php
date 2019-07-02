@@ -19,7 +19,10 @@
         <div class="card mb-4">
           <div class="card-body">
             <h2 class="card-title">{{ $post->title}}</h2>
-            <p><span>Posted in: <a href="/posts/category/{{ $post->category->name }}">{{ $post->category->name }}</a></span></p>
+            <p><span>Posted in: 
+                <a href="/posts/category/{{ $post->category->name }}">
+                  {{ $post->category->name }}</a>
+                </span></p>
 
             @if(count($post->tags))
             <p>Tags:<br />
@@ -31,8 +34,8 @@
            @endif
             
             @if( Auth::check())
-            <p><a class="btn btn-warning" href="/posts/edit/{{ $post->slug}}">edit</a></p>
-            &nbsp;
+            <a class="btn btn-warning" href="/posts/edit/{{ $post->slug}}">edit</a><br />
+            &nbsp;&nbsp;
 
             <form class="form form-inline" action="/posts/{{$post->slug}}" method="post">
 
@@ -40,7 +43,7 @@
               @method('DELETE')
 
               <button class="form-inline btn btn-sm btn-danger">delete</button>
-            </form>&nbsp;
+            </form>&nbsp;&nbsp;<br />
 
             @endif
 

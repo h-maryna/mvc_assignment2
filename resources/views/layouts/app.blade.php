@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="/posts">Posts</a></li>
+                        <li><a class="navbar-brand" href="/posts">Posts</a></li>
 
                     </ul>
 
